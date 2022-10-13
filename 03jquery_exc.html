@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script src="script/jquery-3.6.1.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            $('.btn1').click(function(){
+                $('#jquery').css('color','#f00');
+            });
+
+        });
+    </script>
+    <style>
+        .box{
+            border: 1px solid rgb(252, 40, 40);
+            width: 800px;
+            margin-bottom: 30px;
+        }
+        h2{
+            background-color: rgb(252, 40, 40);
+            color: #fff;
+            font-size: 18px;
+            margin-top: 0;
+            padding: 7px;
+        }
+        .box > p a{
+            border: 1px solid black;
+            background-color: rgb(255, 244, 244);
+            color: #000;
+            text-decoration: none;
+            padding: 5px;
+            display: inline-block;
+            width: 170px;
+            text-align: center;
+        }
+        .box > p a:hover{
+            background-color: rgb(242, 228, 228);
+        }
+        .box > p{
+            padding-left: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <article class="box">
+        <h2>기본</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>javascript</li>
+            <li>jquery</li>
+            <li>PHP</li>
+            <li>MYSQL</li>
+        </ul>
+        <p><a href="#">jquery</a> -id선택자</p>
+        <p><a href="#">.tutorial</a> -class선택자</p>
+        <p><a href="#">li</a> -엘리먼트선택자</p>
+        <p><a href="#">#jquery,#MYSQL</a> -다중선택자</p>
+    </article>
+    <article class="box">
+        <h2>filter</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>javascript</li>
+            <li>jquery</li>
+            <li>PHP</li>
+            <li>MYSQL</li>
+        </ul>
+        <p><a href="#">#list li:eq(2)</a> -인자와 인덱스가 동일한 멜리먼트를 찾아내는 선택자</p>
+        <p><a href="#">#list li:gt(1)</a> -인자보다 인덱스가 동일한 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">#list li:lt(2) </a> -인자보다 인덱스가 작은 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">#list li:even</a> - 첫번째, 세번째... 홀 수의 인덱스 값을 가진 엘리먼트에 대한 선택자</p>
+        <p><a href="#">#list li:odd</a> -두번째, 네번째... 짝 수의 인덱스 값을 가진 엘리먼트에 대한 선택자</p>
+        <p><a href="#">#list li:first</a> -첫번째 인덱스 엘리먼트에 대한 선택자</p>
+        <p><a href="#">#list li:last</a> -마지막 인덱스 엘리먼트에 대한 선택자</p>
+    </article>
+    <article class="box">
+        <h2>속성</h2>
+        <ul>
+            <li>ABCD</li>
+            <li>BCDE</li>
+            <li>CDEF</li>
+            <li>DEFG</li>
+            <li>EFGH</li>
+            <li>FGHI</li>
+        </ul>
+        <p><a href="#">[target*="BC"]</a> -속성의 값에 주어진 문자열이 포함되는 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">[target="DEFG"]</a> -속성의 값에 주어진 문자열이 포함되는 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">[target!="DEFG"]</a> - 속성의 값과 주어진 문자열이 일치하지 않는 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">[target^="B"]</a> -속성의 값으로 주어진 문자열이 처음 등장하는 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">[target$="H"]</a> -속성의 값으로 주어진 문자열이 마지막으로 등장하는 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">[target]</a> -속성이 존재하는 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">[target][id]</a> -속성들이 존재하는 엘리먼트를 찾아내는 선택자</p>
+    </article>
+    <article class="box">
+        <h2>Form</h2>
+        <input type="text" value="disabled" disabled>
+        <input type="text" value="enabled" ><br>
+       <label for="checkbox"><input type="checkbox"></label><br>
+       <label for="checkbox"><input type="checkbox"></label>
+
+        <p><a href="#">[type="text"]</a> -폼 엘리먼트를 선택할 때는 속성 셀렉터를 사용한다.</p>
+        <p><a href="#">[type="text"]:disabled</a> disabled 속성의 값이 disabled인 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">[type="text"]:enabled</a> -enabled속성의 값이 enabled인 엘리먼트를 찾아내는 선택자</p>
+        <p><a href="#">input:checked</a> -체크박스 중 체크가 된 엘리먼트를 찾아내는 선택자</p>
+    </article>
+</body>
+</html>

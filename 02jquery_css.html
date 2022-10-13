@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02jquery_css메서드</title>
+  <!-- 제이쿼리 라이브러리 연결 1방식. 2방식 -->
+  <script src="script/jquery-3.6.1.js"></script>
+  <!-- 제이쿼리 랩퍼 -->
+  <script>
+    $(document).ready(function(){
+      // .css('속성','값');     서식이 1개일 때
+      // .css({'속성':'값','속성':'값','속성':'값'})  서식이 2개 이상일 경우
+      // .css('속성','값').css('속성','값').css('속성','값') 서식을 연속해서 적용할 경우 : 별루 추천안함
+
+      $('*').css({'margin':'0px','padding':'0px'}); //전체선택자
+      $('#p01').css('color','#f00'); //아이디 선택자
+      $('.title01').css('background','#ff0'); //클래스 선택자
+      $('h3').css('color','#00f'); //태그선택자
+
+      // 자손, 후손
+      $('ul > li').css('font-family','바탕체'); //자손선택자
+      $('body ul').css('border','2px solid #f00'); //후손선택자
+
+      // 구조선택자 - n번째에 해당하는 요소를 찾아서 서식 적용하기
+      $('ul > li:first-child').css('font-weight','bold');
+
+      // 동위선택자 (*,~)
+      $('h2 + p').css('padding','10px').css('border','2px solid #00f');
+
+      // 그룹선택자(,)
+      $('h2,h3').css('font-style','italic');
+
+      // 탐색선택자
+      $('ul > li:odd').css('background','#00ff00'); //인덱스번호 0부터 시작하기 때문에 짝수번째가 선택이 된다.
+      $('ul > li:even').css('background','#b9a037'); //인덱스번호 0다음인 1부터 시작하기 때문에 홀수번째가 선택이 된다.
+
+      // 속성선택자
+      $('input[type=text]').css('background','#00ff00');
+      $('label[for=t1]').css('color','#f00');
+      $('input[type=submit]').css({
+        'background':'#000',
+        'color':'#fff',
+        'border':'none'
+      });
+    });
+  </script>
+</head>
+<body>
+  <h2 class="title01">02jquery_css메서드</h2>
+  <p id="p01">제이쿼리에서는 css에서 사용하던 선택자를 활용하여 서식을 적용할 수 있는데, 제이쿼리는 css보다 좀더 세밀하게 선택할 수 있고, 그 개수도 많다.</p>
+  <p>http://oscarotero.com/jquery/ - API참고사이트의 왼쪽 'SELECTORES'에서 확인이 가능하다.</p>
+
+  <h3>제이쿼리 선택자를 사용하여 서식 변경하기</h3>
+  <ul>
+		<li>콜드브루</li>
+		<li>브루드 커피</li>
+		<li>에스프레소</li>
+	</ul>
+  <label for="t1">Message :</label>
+  <input type="text" id="t1">
+  <input type="submit">
+</body>
+</html>
