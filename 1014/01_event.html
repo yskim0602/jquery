@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_jquery_event(이벤트)</title>
+  <style>
+    .box{
+			border:1px solid #000;
+			text-align:center;
+			margin-bottom:5px;
+			line-height:40px;
+			width:300px;
+			cursor:pointer;
+		}
+    fieldset{
+      border: none;
+      width: 400px;
+      height: 200px;
+      margin: 0px auto;
+      transform: translateY(-400px);
+    }
+    fieldset legend{
+      text-align: center;
+    }
+    fieldset label{
+      display: none;
+    }
+    fieldset input{
+      display: block;
+      margin: 0px auto;
+      padding: 5px;
+      width: 250px;
+      margin-bottom: 10px;
+      transform: translateY(40px);
+    }
+    fieldset #btn{
+      width: 263px;
+      background-color: rgb(59, 137, 59);
+      color: #fff;
+      border: none;
+    }
+
+  </style>
+  <!--	1. 제이쿼리 라이브러리 연결 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){ //문서가 로딩이 끝나면 제이쿼리를 실행한다.
+    $('.box01').click(function(){
+      $(this).css('background','#ffff00');
+    });
+
+    $('.box02').dblclick(function(){
+      $(this).css('background','#00ff00');
+    });
+
+    $('.box03').mouseenter(function(){
+      $(this).css('background','#f00');
+    });
+
+    $('.box04').mouseleave(function(){
+      $(this).css('background','#0f0');
+    });
+
+    $('.box05').hover(function(){ //마우스 올렸을때
+      $(this).css('background','#ff0');
+    },function(){ //마우스 뺐을경우
+      $(this).css('background','#0f0');
+    });
+
+    $('.box06').toggle(function(){
+      $(this).next().css('background','#f00');//빨
+    },function(){
+      $(this).next().css('background','#ff9800');//주
+    },function(){
+      $(this).next().css('background','#ffeb3b');//노
+    },function(){
+      $(this).next().css('background','#4caf50');//초
+    },function(){
+      $(this).next().css('background','#2196f3');//파
+    },function(){
+      $(this).next().css('background','#0f1f7a');//남
+    },function(){
+      $(this).next().css('background','#9c27b0');//보
+    });
+
+    // focusin, focusOut
+    $('#id_txt,#pw_txt').focusin(function(){
+      $(this).css({
+        'border':'3px solid #f00',
+        'background':'#0f0'
+      });
+    });
+    $('#id_txt,#pw_txt').focusOut(function(){
+      $(this).css({
+        'border':'3px solid #000',
+        'background':'#ccc'
+      });
+    });
+
+  });
+</script>
+</head>
+<body>
+  <h2>01_jquery_event(이벤트)</h2>  
+  <input type="button" value="자바스크립트 이벤트(click)" id="btn">
+  <p>자바스크립트 언어로 버튼을 클릭시 '클릭이벤트입니다.'라는 메세지 띄우기</p>
+  <p>onclick="alert('클릭이벤트입니다.');"</p>
+  <p>onclick="msg();" 함수를 사용하여 작성하기</p>
+
+  <p>웹문서에서 버튼을 클릭한다거나 마우스를 움직이거나 하는 모든 행위를 '이벤트'라고 한다. 그리고 이벤트 발생시 함수의 실행문이 수행되도록 이벤트를 지정하는 것을 '이벤트 핸들러'라고 한다.</p>
+  
+  <h3>이벤트의 종류</h3>
+  <ul>
+    <li>mouse 이벤트</li>
+    <li>키보드 이벤트</li>
+    <li>포커스 이벤트</li>
+    <li>폼양식 이벤트</li>
+    <li>윈도우 이벤트 - 화면스크롤(scroll)</li>
+  </ul>
+
+  <h3>이벤트 작성방법</h3>
+  <ol>
+    <li>단독 이벤트 - $('이벤트 대상').이벤트 메서드(function(){실행할 내용;});</li>
+    <li>$('이벤트 대상').on('이벤트 종류1, 이벤트 종류2.....',function(){실행할 내용;});</li>
+  </ol>
+
+  <h3>마우스 이벤트와 양식 이벤트 사용하기</h3>
+  <ol>
+    <li>click - 마우스로 대상을 클릭하였을 때 이벤트 내용이 실행됨.</li>
+    <li>dblclick - 마우스로 대상을 더블클릭하였을 때 이벤트 내용이 실행됨.</li>
+    <li>mouseenter - 마우스로 대상을 오버하였을 때 이벤트 내용이 실행됨.(=mouseover)</li>
+    <li>mouseleave - 마우스로 대상을 오버하였다가 뺐을때 이벤트 내용이 실행됨.(=mouseout)</li>
+    <li>hover - 마우스로 대상을 오버하였을 때와 뺐을 때 둘다 각각 따로 이벤트 내용이 실행됨.</li>
+    <li>focus - 마우스로 클릭하여 포커스가 발생되었을 때 이벤트 발생됨.(양식에서)</li>
+    <li>blur - 폼양식에서 포커스가 해제되었을 때 이벤트가 발생됨.</li>
+    <li>toggle - 대상요소를 클릭할 때 마다 지정된 함수를 호출하여 실행함.</li>
+    <li>each - 개별(각각에 대하여)처리</li>
+  </ol>
+
+  <div class="box box01">click이벤트</div>
+  <div class="box box02">dblclick이벤트</div>
+  <div class="box box03">mouseenter이벤트</div>
+  <div class="box box04">mouseleave이벤트</div>
+  <div class="box box05">hover이벤트</div>
+  <div class="box box06">toggle이벤트</div>
+  <p>위 toggle박스를 클릭하면 현재 문단태그요소에 서식이 변경됩니다.<br>
+    toggle이벤트는 제이쿼리 1.8버전 이하에서만 동작됩니다.</p>
+
+    <h3>폼양식에 사용되는 focusIn, focusOut 이벤트 적용하기</h3>
+    <fieldset>
+      <legend>LOGIN</legend>
+      <label for="id_txt">아이디</label>
+      <input type="text" id="id_txt" placeholder="아이디">
+      <label for="pw_txt">패스워드</label>
+      <input type="password" id="pw_txt" placeholder="패스워드">
+      <label for="btn">로그인</label>
+      <input type="button" id="btn" placeholder="로그인">
+    </fieldset>
+  <script>
+    // function msg(){
+    //   alert('클릭이벤트입니다.');
+    // }
+      let btn = document.getElementById('btn');
+      btn.addEventListener('click',function(){
+        alert('클릭이벤트입니다.');
+      });
+  </script>
+</body>
+</html>

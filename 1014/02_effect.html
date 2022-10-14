@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>02_제이쿼리 효과(effect)</title>
+  <style>
+    #box{
+      width: 330px;
+      height: 150px;
+      border:3px solid #000;
+      margin: 10px;
+      overflow: hidden;
+    }
+  </style>
+  <!-- 제이쿼리 라이브러리 연결 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      const b1 = $('#btn01');
+      const b2 = $('#btn02');
+      const b3 = $('#btn03');
+      const b4 = $('#btn04');
+      const b5 = $('#btn05');
+      const b6 = $('#btn06');
+      const b7 = $('#btn07');
+      const b8 = $('#btn08');
+      const b9 = $('#btn09');
+      const b10 = $('#btn10');
+      
+      b1.click(function(){
+        $('#box').show();   //display:block;
+      });
+      b2.click(function(){
+        $('#box').hide();   //display:none;
+      });
+      b3.click(function(){
+        $('#box').toggle(); //show, hide;
+      });
+      b4.click(function(){
+        $('#box').slideDown();
+      });
+      b5.click(function(){
+        $('#box').slideUp();
+      });
+      b6.click(function(){
+        $('#box').slideToggle();
+      });
+      b7.click(function(){  
+        $('#box').fadeIn();
+      });
+      b8.click(function(){
+        $('#box').fadeOut();
+      });
+      b9.click(function(){
+        $('#box').fadeToggle();
+      });
+      b10.click(function(){
+        $('#box').fadeTo(3000,0.6);
+      })
+
+    });
+  </script>
+</head>
+<body>
+  <h2>02_제이쿼리 효과(effect)</h2>
+  <p>효과(effect)란? 사용자가 지정한 html요소를 선택하여 숨기거나 나타내기, 페이드 효과, 슬라이드 다운, 업, 애니메이션 기능을 사용하기 위한 메소드들이 있다.</p>
+
+  <ul>
+    <li>show(): - 선택한 요소를 보이게 한다.</li>
+    <li>hide(): - 선택한 요소를 숨긴다.</li>
+    <li>toggle(): - 선택한 요소를 숨기거나/나타낸다.</li>
+    <li>slideDown(): - 선택한 요소를 아래로 펼친다.</li>
+    <li>slideUp(): - 선택한 요소를 위로 접는다.</li>
+    <li>slideToggle(): - 선택한 요소를 아래로 펼치거나/위로 접는다.</li>
+    <li>fadeIn(): - 선택한 요소를 서서히 나타낸다.</li>
+    <li>fadeOut(): - 선택한 요소를 서서히 사라지게한다.</li>
+    <li>fadeToggle(): - 선택한 요소를 서서히 나타내거나/사라지게한다.</li>
+    <li>fadeTo(): - 선택한 요소를 지정한 시간만큼 서서히 사라지게한다.</li>
+  </ul>
+
+  <input type="button" id="btn01" value="show()">
+  <input type="button" id="btn02" value="hide()">
+  <input type="button" id="btn03" value="toggle()">
+  <input type="button" id="btn04" value="slideDown()">
+  <input type="button" id="btn05" value="slideUp()">
+  <input type="button" id="btn06" value="slideToggle()">
+  <input type="button" id="btn07" value="fadeIn()">
+  <input type="button" id="btn08" value="fadeOut">
+  <input type="button" id="btn09" value="fadeToggle()">
+  <input type="button" id="btn010" value="fadeTo()">
+  <div id="box">
+    <img src="./img/banner.jpg" alt="banner">
+  </div>
+
+  <p>show, hide효과는 전체메뉴 숨기기/나타내기, 모달팝업 숨기기/나타내기....</p>
+  <p>fade효과는 메인이미지 서서히 나타내기/서서히 사라지게하기....</p>
+  <p>slide효과는 내비게이션 작성시 2단 메뉴에 적용할 수 있다.모바일 2단 메뉴</p>
+</body>
+</html>

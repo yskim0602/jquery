@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쿠팡 화면 상단 배너 /숨기기</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const bn = $('.banner');
+            const cs = $('.close');
+            const cs2 = $('.close01');
+            cs.click(function(){
+                $(this).hide();
+                $('.banner').slideUp();
+            })
+            cs2.click(function(){
+                $('article').hide();
+            })
+        })
+    </script>
+    <style>
+        *{
+            padding: 0px;margin: 0px;
+        }
+        header{
+            text-align: center;
+            position: relative;
+            background-color: #fff;
+            width: 100%;
+        }
+        header .close{
+            position: absolute;
+            color: #000;
+            top: 10px;
+            right: 30px;
+            padding: 5px;
+            cursor: pointer;
+            font-size: 2rem;
+        }
+        .banner{
+            overflow: hidden;
+            height: 80px;
+        }
+        article > #popup img{
+            width: 300px;
+        }
+        article{   
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            position: fixed;
+            background-color: rgba(51, 51, 51, 0.424);
+        }
+        article .ppp{
+            transform: translate(120%,20%);
+            position: fixed;
+        }
+        article .close01{
+            position: absolute;
+            background-color: rgb(33, 33, 33);
+            color: #fff;
+            bottom: -32px;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            padding: 5px 0px;
+        }
+        main{
+            text-align: center;
+        }
+        .img03{
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="banner">
+            <a href="#" id="banner01"><img src="./img/coupang_02.jpg" alt=""></a>
+            <p class="close">X</p>
+        </div>
+        <div class="img03">
+            <img src="./img/coupang_03.jpg" alt="">
+
+        </div>
+        <img src="./img/coupang_04.jpg" alt="">
+    </header>
+    <main>
+        <img src="./img/coupang_05.jpg" alt="">
+
+    </main>
+    <article>  
+        <div class="ppp">
+            <a href="" id="popup"><img src="./img/popup.jpg" alt=""></a>
+            <p class="close01">닫기X</p>
+
+        </div> 
+    </article>
+</body>
+</html>
