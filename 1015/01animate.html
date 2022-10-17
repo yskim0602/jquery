@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01animate(애니메이트)</title>
+    <style>
+        #profile{width: 478px; height: 287px; border: 3px solid #000; position: relative; overflow: hidden;margin: 0px auto;}
+        #profile .title{
+            position: absolute;
+            left: -300px;
+            top: 50px;
+        }
+        #profile .jobs{
+            position: absolute;
+            bottom: -300px;
+            right: 0;
+        }
+    </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+      <!-- 2.제이쿼리 랩퍼 -->
+      <script>
+        $(document).ready(function(){
+            let title = $('#profile .title'); //타이틀 이미지를 변수에 담는다.
+            title.animate({'left':'20px'},500);
+
+            let jobs = $('#profile .jobs');
+            jobs.animate({'bottom':'0px'},300);
+        });
+
+      </script>
+</head>
+<body>
+    <h2>01animate(애니메이트)</h2>
+    <p>제이쿼리에서는 효과와 애니메이트 메소드를 사용하여 사용자가 선택한 요소를 다양하게 움직이게 만들 수 있다.</p>
+    <p>css에서는 transition, @keyframes, animation속성으로 작업을 하였음.</p>
+
+    <h3>1. 작성법</h3>
+    <p>$('대상').animate({'속성:'값'},시간, 가속도, 콜백함수);</p>
+    <p>속성:값 은 css의 속성과 값을 말하며, '값'에는 자바스크립트 변수나 연산자를 사용할 수 있고, 시간은 애니메이션이 동작하는 시간(1/1000=1초), 가속도는 easing메서드를 활용한 값이다.</p>
+    <p>콜백함수는 애니메이션이 종료가 된 후에 다음 동작을 실행하고자 할 때 사용한다.</p>
+
+    <h3>2. 애니메이션 간단하게 만들기</h3>
+    <div id="profile">
+        <img src="./images/jobs_text.gif" alt="" class="title">
+        <img src="./images/jobs.png" alt="" class="jobs">
+    </div>
+</body>
+</html>

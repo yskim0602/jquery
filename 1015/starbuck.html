@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스타벅스 메인슬라이드 이미지 효과 적용해보기</title>
+    <style>
+        .slide{
+            width: 1200px; 
+            height: 750px;
+            margin: 0px auto;
+            background: #ccc;
+            position: relative;
+        }
+        .slide img{position: absolute; display: none;}
+        .slide img:first-child{top: 150px; left: 200px;}
+        .slide img:nth-child(2){bottom: 100px; left: 500px;}
+        .slide img:last-child{right: 100px; bottom: 260px;}
+    </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+      <script>
+        $(document).ready(function(){
+            let coffee01 = $('.slide img').eq(0);
+            let coffee02 = $('.slide img').eq(1);
+            let coffee03 = $('.slide img').eq(2);
+
+            coffee01.delay(1000).fadeIn(); //2
+            coffee02.fadeIn(500); //1
+            coffee03.delay(1500).fadeIn(); //3
+        });
+      </script>
+</head>
+<body>
+    <main>
+        <article class="slide">
+            <img src="./images/2022_Halloween_main_drink_02.png" alt="">
+            <img src="./images/2022_Halloween_main_drink_01.png" alt="">
+            <img src="./images/2022_Halloween_main_drink_03.png" alt="">
+        </article>
+    </main>
+</body>
+</html>
