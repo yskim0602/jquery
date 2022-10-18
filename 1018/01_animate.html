@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_animate기본과 응용</title>
+  <style>
+    #box01{
+      width:100px;height:100px;
+      border-radius:50%;
+      background:#00ff00;
+      position:relative;
+    }
+    #cat{ position:relative; z-index: -1;}
+    .bar01,.bar02,.bar03{
+      background: #f00;
+      width: 20px;
+      height: 50px;
+      position: relative;
+      left: 0;
+      margin-bottom: 10px;
+    }
+    .box{
+      width: 700px;
+      height: 30px;
+      border: 1px solid black;
+      border-radius: 20px;
+      background-color: lightblue;
+      /* position: relative; */
+      overflow: hidden;
+      display: inline-block;
+    }
+    #type{
+      display: block;
+    }
+    .bar04,.bar07,.bar08,.bar09{
+      height: 30px;
+      border-radius: 20px;
+      background-color: rgb(53, 132, 201);
+      position: relative;
+      z-index: 1; 
+    }
+  </style>
+  <!-- 1. 제이쿼리 라이브러리 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <!-- 제이쿼리 ui 라이브러리 -->
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+  <!-- 2. 제이쿼리 랩퍼 -->
+  <script>
+    $(document).ready(function(){ //html문서의 내용이 출력되면 제이쿼리 내용을 실행한다.
+      
+      $('#p_btn').click(function(){
+        $('#box01').animate({'left':'500px'},500).animate({'top':'200px'},1000).animate({'left':'0px'},2000).animate({'top':'0px'},300);
+      });
+
+      $('#s_btn').click(function(){
+        $('#box01').stop(); //애니메이션을 종료
+      });
+
+      // 자바스크립트의 연산자를 사용하여 기존값에 50픽셀 더하기, 빼기
+      let n = 50; //초기값
+
+      $('#r_btn').click(function(){
+        $('#cat').stop().animate({'left':'+='+n}, 500);
+      });
+      $('#l_btn').click(function(){
+        $('#cat').stop().animate({'left':'-='+n}, 500);
+      });
+      $('#t_btn').click(function(){
+        $('#cat').stop().animate({'top':'-='+n}, 500);
+      });
+      $('#b_btn').click(function(){
+        $('#cat').stop().animate({'top':'+='+n}, 500);
+      });
+
+      // easing값 주기
+      $('#btn01').click(function(){
+        $('.bar01').animate({'width':'500px'},500,'linear');
+      });
+      $('#btn02').click(function(){
+        $('.bar02').animate({'width':'500px'},500,'easeOutQuint');
+      });
+      $('#btn03').click(function(){
+        $('.bar03').animate({'width':'500px'},500,'easeOutElastic');
+      });
+
+      $(function(){
+        $('.box .bar04').animate({'width':'30%'},500);
+        $('.box .bar07').animate({'width':'70%'},500);
+        $('.box .bar08').animate({'width':'70%'},500);
+        $('.box .bar09').animate({'width':'50%'},500);
+      })
+
+    }); 
+  </script>
+</head>
+<body>
+  <h2>01_animate기본과 응용</h2>
+  <p>작성법)  .animate({'속성','값'},시간, 가속도, 콜백함수);</p>
+
+  <h3>1. animate메소드로 박스 움직이게 하기</h3>
+  <div id="box01"></div>
+
+  <input type="button" value="play" id="p_btn">
+  <input type="button" value="stop" id="s_btn">
+
+  <h3>2. 자바스크립트의 절대값을 사용하여 캐릭터 위치 조정하기</h3>
+  <img src="./images/다운로드.jpg" alt="캐릭터" id="cat"><br>
+  <input type="button" value="&#x2192;" id="r_btn">
+  <input type="button" value="&#x2190;" id="l_btn">
+  <input type="button" value="&#x2191;" id="t_btn">
+  <input type="button" value="&#x2193;" id="b_btn">
+
+  <h3>3. 제이쿼리 ui라이브러리를 사용하여 속도감주기</h3>
+  <p>jquery.com사이트의 왼쪽 상단의 ui탭을 클릭하고 왼쪽 easing메뉴에서 jquery.ui라이브러리를 찾아 연결하여 사용한다.</p>
+  <img src="./images/easing.png" alt="">
+  
+  <div class="bar01"></div>
+  <div class="bar02"></div>
+  <div class="bar03"></div>
+
+  <input type="button" id="btn01" value="기본값(Linear)">
+  <input type="button" id="btn02" value="EaseOutQuint">
+  <input type="button" id="btn03" value="EaseOutElastic">
+
+  <h3>4. 실습응용 - 자신의 html, css, javascript/jquery, UI디자인 능력치 표현하기</h3>
+  <p>위 4개의 항목에 대한 능력치 막대를 만들고 버튼을 클릭하면 그래프가 한번에 움직이게 하기</p>
+
+  <div>
+    <span id="type">Python</span>
+    <div class="box">
+      <span class="bar04"></span>
+    </div>
+    <span>30%</span>
+  </div>
+  <div>
+  <div>
+    <span id="type">HTML</span>
+    <div class="box">
+      <span class="bar07"></span>
+    </div>
+    <span>70%</span>
+  </div>
+  <div>
+    <span id="type">CSS</span>
+    <div class="box">
+      <span class="bar08"></span>
+    </div>
+    <span>70%</span>
+  </div>
+  <div>
+    <span id="type">Javascript</span>
+    <div class="box">
+      <span class="bar09"></span>
+    </div>
+    <span>50%</span>
+  </div>
+
+</body>
+</html>
