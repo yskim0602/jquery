@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_jquery_DOM_class(클래스) 조작</title>
+  <style>
+    #box01{
+      width:500px;height:150px;
+      border:3px solid #000;
+      background:#ccc;
+    }
+    .act{
+      background:#ff0 !important;
+      border:1px solid #f00 !important;
+    }
+    .banner *{margin:0px;padding:0px;}
+    ul, ol, li{list-style:none;}
+    .banner{
+      width:250px;
+      height:180px;
+      border:3px solid #000;
+    }
+    .banner .slide, .banner .c_btn{
+      display:flex;
+    }
+    .banner .slide{
+      width:1000px;
+      position:relative;
+    }
+    .banner .c_btn{justify-content:center;}
+    .banner .c_btn > li{
+      width:10px;height:10px;
+      background:#ccc;
+      border-radius:50%;
+      margin:6px 3px 0px 3px; 
+      transition:0.3s;
+    }
+    .act01{
+      width:40px !important;
+      border-radius:10px 10px 10px 10px !important;
+      background:#000 !important;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(){
+      
+      // 전역변수 
+      let n = $(this).index(); 
+
+      //이미지 크기를 자동으로 구하여 변수에 담기
+      let s_img = $('.banner .slide img').width();
+      console.log(s_img); //250
+
+      //이미지 슬라이드 
+      $('.banner .c_btn li').first().addClass('act01');
+
+      $('.banner .c_btn li').click(function(){
+        n = $(this).index();
+        $('.banner .slide').stop().animate({'left':-(s_img*n)},500);
+        //목록에 적용된 서식을 모두 제거하고
+        $('.banner .c_btn li').removeClass('act01');
+        $(this).addClass('act01'); //현재 목록에만 서식을 적용한다.
+      });       
+
+      function auto(n){
+        console.log(n); //콘트롤 버튼의 인덱스값을 구하여 출력해보기
+        $('.banner .slide').stop().animate({'left':-(s_img*n)},500);
+      }
+
+      function moveLeft(){
+        if(n==2){
+          n=0;
+        }else{
+          n++;
+        }
+        auto(n); //조건식에 나온 변수값을 auto로 넘겨준다.
+      }
+
+      let Timer = setInterval(moveLeft, 3000);
+
+      //1. 콘트롤 버튼에 마우스 오버시 시간을 제거하여 멈추게하고, 다시 아웃시 시간을 넣어서 움직이게한다.
+      //2. 플레이 버튼을 클릭하면 다시 움직이게 한다.
+      //3. 스탑버튼을 클릭하면 다시 시간을 넣어서 자동으로 움직이게 한다.
+
+    });
+  </script>
+</head>
+<body>
+  <h2>02이미지 슬라이드(자동, play, stop)</h2>
+  <h3>실습예제 - 이미지 4장을 사용하여 콘트롤 버튼이 들어간 슬라이드 만들기</h3>
+  <article class="banner">
+    <ul class="slide">
+      <li><a href="#" title=""><img src="./img/emp-policy-slide2.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="./img/emp-policy-slide3.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="./img/emp-policy-slide4.png" alt=""></a></li>
+      <li><a href="#" title=""><img src="./img/emp-policy-slide5.png" alt=""></a></li>
+    </ul>
+    <ul class="c_btn">
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+      <li>&nbsp;</li>
+    </ul>
+  </article>
+
+</body>
+</html>
