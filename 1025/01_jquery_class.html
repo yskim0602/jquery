@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 문서객체조작_class조작을 사용하여 퀵메뉴 만들기</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+  <style>
+    aside{
+      width:152px;height:100%;
+      background:#ff0;
+      position:fixed;
+      right:0px;top:0px;
+    }
+    img{
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    i.fas{
+        position: absolute;
+        font-size: 40px;
+        right: 151px;
+        top: 48%;
+        border: 1px solid #ccc;
+        padding: 10px;
+    }
+    .act{transform: rotate(180deg);}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function(){
+
+        let q_btn = $('aside i.fas');
+
+        q_btn.click(function(){
+            // $(this).toggleClass('act');
+            // $('aside').animate({'right':'-152px'},300,'easeOutElastic');
+            if($(this).hasClass('act')==false){//만약에 i.fas에 act서식이 없다면 
+                //aside의 위치를 0px위치에 배치하고
+                $('aside').animate({'right':'0px'},300,'easeOutExpo');
+                $(this).addClass('act');
+            }else{//그렇지 않으면
+                $(this).removeClass('act');//다시 윈래 위치인 -152px로 위치하게 한다.
+                $('aside').animate({'right':'-152px'},300,'easeOutExpo');
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+  <h2>제이쿼리 문서객체조작_class조작을 사용하여 퀵메뉴 만들기</h2>
+  <p>삼성화재 다이렉트 운전자보험, 현대 해피모터샵 참고</p>
+  <dl>
+    <dt>구현순서</dt>
+    <dd>1. aside태그를 사용하여 퀵메뉴 내용을 작성하고, 방향버튼을 추가한다.</dd>
+    <dd>2. css서식으로 오른쪽 사이드에 position속성으로 고정배치를 하고, '>'버튼 서식을 작성한다.</dd>
+    <dd>3. '>'버튼을 클릭시 '<'방향이 변경되게 하기 위해서 'act'서식을 미리 작성한다.</dd>
+    <dd>4. jquery에서 click이벤트를 사용하여 aside의 위치를 변경하고 동시에 방향버튼이 반대로 회전하도록 한다.</dd>
+    <dd>5. 다시 방향버튼을 클릭시 aside가 원래위치로 돌아오도록 한다.</dd>
+  </dl>
+
+  <aside>
+    <nav>
+      <img src="./img/sidebar.jpg" alt="퀵메뉴">
+    </nav>
+    <i class="fas fa-angle-right"></i>
+  </aside>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>제이쿼리_문서객체조작(DOM) 관련메서드</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<style>
+		.txt01{background:#ff0;}
+		.txt02{background:#0f0;}
+		.b_box{
+			width: 600px;
+			height: 437px;
+			border: 3px solid #000;
+			position: relative;
+            margin: 0px auto;
+            top: 200px;
+            overflow: hidden;
+		}
+        .b_box .banner img{
+            width: 100%;
+        }
+        .b_box .banner{
+            position: absolute;
+            bottom: -4px;
+        }
+        .b_box nav{
+            position: absolute;
+            top:-16px;
+            left: -40px;
+        }
+        .b_box ul{
+            display: flex;
+        }
+        .b_box ul li{
+            width: 25%;
+        }
+        .b_box ul li img{
+            width: 100%;
+            height: 100px;
+        }
+		.b_box li{text-align: center;list-style: none;}
+		.b_box nav a{
+			display: block;
+		}
+        i.fas{
+            font-size: 40px;
+            border: 3px solid black;
+            color:#fff;
+            position: absolute;
+            z-index: 11;
+            background-color: #000;
+        }
+        i.fas{
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+            
+        }
+        i.fa-angle-left{ left: 0;}
+        i.fa-angle-right{ right: 0;}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+	
+
+	<h3>쿠팡참고하여 메뉴에 마우스 오버시 해당 이미지가 나오게 하기</h3>
+	<article class="b_box">
+		<div class="banner">
+			<img src="./img/mv_01.jpg" alt="">
+		</div>
+		<nav>
+			<ul>
+				<li><a href="./img/mv_01.jpg" title=""><img src="./img/mv_01.jpg" alt=""></a></li>
+				<li><a href="./img/mv_02.jpg" title=""><img src="./img/mv_02.jpg" alt=""></a></li>
+				<li><a href="./img/mv_03.jpg" title=""><img src="./img/mv_03.jpg" alt=""></a></li>
+				<li><a href="./img/mv_04.jpg" title=""><img src="./img/mv_04.jpg" alt=""></a></li>
+			</ul>
+		</nav>
+        <i class="fas fa-angle-left"></i>
+        <i class="fas fa-angle-right"></i>
+	</article>
+
+
+	<script>
+        $(document).ready(function(){
+            // 이미지 갤러리
+			let img_src;
+            let n = 1;
+
+			$('nav li a').click(function(){  //a태그에 마우스 오버시
+				let img_src = $(this).attr('href'); //현재 a요소의 href속성값을 변수에 담는다.
+
+				$('.banner img').css('opacity','0').animate({'opacity':'1'},300).attr('src',img_src);
+                return false;
+			});
+            $('i.fa-angle-left').click(function(){
+                if(n == 1){
+                    n=4;
+                }else{
+                    n--;
+                }
+                $('.banner img').css('opacity','0').animate({'opacity':'1'},300).attr('src',"./img/mv_0"+n+".jpg");
+            });
+            $('i.fa-angle-right').click(function(){
+                if(n == 4){
+                    n=1;
+                }else{
+                    n++;
+                }
+                $('.banner img').css('opacity','0').animate({'opacity':'1'},300).attr('src',"./img/mv_0"+n+".jpg");
+            });
+
+		});
+	</script>
+</body>
+</html>

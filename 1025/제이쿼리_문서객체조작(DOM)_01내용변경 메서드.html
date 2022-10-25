@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>제이쿼리_문서객체조작(DOM) 관련메서드</title>
+	<style>
+		.txt01{background:#ff0;}
+		.txt02{background:#0f0;}
+		.b_box{
+			width: 534px;
+			height: 340px;
+			border: 3px solid #000;
+			position: relative;
+		}
+		.b_box nav{
+			position: absolute;
+			top: 0px;right: 0px;
+			z-index: 10;
+			width: 160px;
+			height: 100%;
+			background: rgba(255, 255, 255, 0.9);
+		}
+		.b_box ul{margin:0px; padding: 0px;}
+		.b_box li{text-align: center;list-style: none;}
+		.b_box nav a{
+			line-height: 85px;
+			display: block;
+			text-decoration: none;
+			color: #333;
+			font-size: 18px;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#btn01').click(function(){
+				$('.txt01').text('text메서드로 내용을 추가하였습니다.');
+			});
+
+			$('#btn02').click(function(){
+				$('.txt02').html('<address>html메서드로 태그내용을 추가하였습니다.</address');
+			});
+		});
+	</script>
+</head>
+<body>
+	<h2>제이쿼리_문서객체조작(DOM) 관련메서드</h2>
+	<p>문서객체조작이란? DOM(문서객체모델)에서 HTML문서안에서 모든 요소들과 내용들을 제이쿼리를 사용하여 글자를 변경하거나 추가, 삭제, 속성값을 변경할 수 있는 것을 말한다.</p>
+	<p>https://oscarotero.com/jquery/페이지의 API에서 'ATTRIBUTES', 'MANIPULATION' 카테고리에서 메소드 확인가능.</p>
+    
+    <h3>문서내용을 변경하기 위한 메서드</h3>
+	<ul>
+		<li>$('대상').text(); - html요소를 선택하여 내용을 입력하거나 가져오기 위한 메소드</li>
+		<li>$('대상').html(); - html요소를 선택하여 html태그요소를 추가하거나 가져오기 위한 메소드</li>
+		<li>$('대상').attr(); - html요소를 선택하여 속성값을 추가하거나 변경하기 위한 메서드</li>
+		<li>$('대상').val(); - html요소를 선택하여 input요소의 속성값을 추가하거나 변경하기 위한 메서드</li>
+        <li>$('대상').empty(); - 내용지우기</li>
+        <li>$('대상').remove(); - 요소지우기</li>
+        <li>$('대상').addClass(); - 클래스 추가하기</li>
+        <li>$('대상').removeClass(); - 클래스 제거하기</li>
+        <li>$('대상').hasClass(); - 클래스 존재여부확인</li>
+        <li>$('대상').toggleClass(); - 클래스 토글 적용</li>
+        <li>$('대상').appendTo(); - 부모내용 마지막 위치로 이동하기</li>
+        <li>$('대상').prependTo(); - 부모내용 처음 위치로 이동하기</li>
+	</ul>
+	
+	<p class="txt01">아래 text(); 버튼을 클릭하면 이곳에 텍스트 내용이 변경됩니다.</p>
+	<p class="txt02">아래 html(); 버튼을 클릭하면 이곳에 html태그요소가 추가되어 변경됩니다.</p>
+	
+	<input type="button" value='text()버튼' id="btn01">
+	<input type="button" value='html()버튼' id="btn02">
+    
+	<div id="box"></div>
+    
+	<h3>attr()메서드를 활용하여 베스킨라빈스 로고 이미지 변경하기</h3>
+	<p>.attr();  - attribute(속성)의 약자로서 사용자가 선택한 html요소의 속성을 선택하여 값을 가져오거나 변경하고자 할 때 사용한다.
+	<br>
+	 작성법) .attr('속성','값');   또는 .attr('속성');
+	</p>
+	<!-- ./img/img_monthly_fom.png -->
+	<img src="./img/logo_baskinrobbins.png" alt="베스킨로고" id="logo">
+
+	<button value="클릭시 로고가 변경됩니다." id="btn03">
+        클릭시 로고가 변경됩니다.
+    </button>
+	<h3>네이버 링크 주소를 다음주소로 변경하기</h3>
+	<a href="http://www.naver.com" id="naver">네이버</a>
+	<button value="클릭시 네이버주소가 다음주소로 변경되어 연결됩니다." id="btn04"></button>
+
+	<h3>쿠팡참고하여 메뉴에 마우스 오버시 해당 이미지가 나오게 하기</h3>
+	<article class="b_box">
+		<div class="banner">
+			<img src="./img/01.jpg" alt="">
+		</div>
+		<nav>
+			<ul>
+				<li><a href="./img/01.jpg" title="">광고이미지01</a></li>
+				<li><a href="./img/02.jpg" title="">광고이미지02</a></li>
+				<li><a href="./img/03.jpg" title="">광고이미지03</a></li>
+				<li><a href="./img/04.jpg" title="">광고이미지04</a></li>
+			</ul>
+		</nav>
+	</article>
+
+
+	<script>
+		$(document).ready(function(){
+			$('#btn03').click(function(){
+				$('#logo').attr('src','./img/img_monthly_fom.png');
+			});
+			$('#btn04').click(function(){
+				$('#naver').attr('href','http://www.daum.net');
+			});
+
+			// 이미지 갤러리
+			let img_src;
+
+			$('nav li a').mouseenter(function(){  //a태그에 마우스 오버시
+				let img_src = $(this).attr('href'); //현재 a요소의 href속성값을 변수에 담는다.
+
+				$('.banner img').css('opacity','0').animate({'opacity':'1'},300).attr('src',img_src);
+			});
+
+
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>제이쿼리 문서객체조작_02객체편집 메소드</title>
+</head>
+<body>
+	<h2>제이쿼리 문서객체조작_02객체편집 메소드</h2>
+	<p>객체 편집 메소드는 html문서안에서 사용자가 선택한 요소의 앞쪽이나 뒤쪽에 내용을 추가하거나 복제, 삭제하는 메소드.</p>
+	<img src="./img/before_after.jpg" alt="" style="width:600px;">
+    
+	<h3>1. 내용을 추가하기(add)</h3>
+	<ul class='list01'>
+		<li>append(); - 선택한 요소(부모)의 안쪽으로 맨뒤에 내용을 추가하기</li>
+		<li>prepend(); - 선택한 요소(부모)의 안쪽으로 맨앞에 내용을 추가하기</li>
+		<li>after(); - 선택한 요소(형제)의 뒤에 내용을 추가하기</li>
+		<li>before(); - 선택한 요소(형제)의 앞에 내용을 추가하기</li>
+		<li>insertBefore();    insertAfter(); - 자리배치하기</li>
+	</ul>
+	
+	<div id="box01">
+		<p>문단요소입니다.</p>
+	</div>
+	
+    <P>내용추가 메소드는 이메일추가, 쇼핑몰 콘텐츠 '더보기', 모달창, 갤러리 작품 더보기, 공지사항 더보기, FAQ더보기 등 내용을 추가하고자 할 때 응용할 수 있다.</P>
+
+  <p>insertAfter(), insertBefore()를 사용하면 A라는 요소의 앞쪽에 B라는 요소를 배치할 수 있고, B라는 요소의 뒤쪽에 A요소를 배치할 수도 있다. after(), before()메소드와 기능은 같지만 사용법이 다르다.</p>
+  <pre>예)
+    $('A').after('B'); - A요소의 바깥쪽으로 뒤에 B내용을 추가한다.<br>
+    $('B').insertAfter('A'); - A요소의 바깥쪽으로 뒤에 B내용을 추가한다.
+  </pre>
+	
+	<h3>2. 내용을 삭제하기(Remove)</h3>
+	<p>사용자가 선택한 요소를 찾아서 내용만 지우거나, 요소자체를 삭제하기</p>
+	<ul class='list02'>
+		<li>remove(); 사용자가 선택한 요소를 제거</li>
+		<li>empty(); 사용자가 선택한 요소의 내용만 제거</li>
+	</ul>
+	
+	<div id="box02">
+		empty버튼을 클릭하면 이곳의 내용이 지워집니다. <br>
+		remove버튼을 클릭하면 이 박스가 제거됩니다.
+	</div>	
+</body>
+</html>
+
+
+
+
+
+
+
+
