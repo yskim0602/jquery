@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>제이쿼리 문서객체조작을 활용한 이미지 갤러리(모달, 내비게이션, 캡션)</title>
+  <link href="./css/reset.css" rel="stylesheet" type="text/css">
+  <link href="./css/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+  <script src="./script/main.js"></script>
+</head>
+<body>
+  <h2>제이쿼리 문서객체조작을 활용한 이미지 갤러리(모달, 내비게이션, 캡션)</h2>
+  <dl>
+    <dt>구현순서</dt>
+    <dd>목록태그로 내비게이션 메뉴 5개를 만들고 클릭시 해당 이미지 목록만 보이게한다.</dd>
+    <dd>콘텐츠영역에 목록태그를 사용하여 12개의 li태그에 각각 마우스 오버시 캡션내용이 나타나게 한다.</dd>
+    <dd>이미지 목록에 마우스 클릭시 해당사진의  src속성값을 변수에 담아 모달윈도를 띄운다</dd>
+    <dd>모달윈도에서 '닫기'를 클릭시 해당 이미지가 사라지게한다.</dd>
+    <dd>갤러리 내비게이션을 클릭시 해당 메뉴에만 act서식을 적용하도록 한다.</dd>
+  </dl>
+
+<header>헤더영역</header>
+
+<main> 
+  <br>  <br>  <br>  <br>  <br>  <br>  <br>  <br>
+  <section class="gallery">
+    <h2>프론트엔드 프로젝트 과정별 이미지</h2>
+    <nav>
+      <ul class="lnb">
+        <li><a href="#" title="전체보기" class='on'>전체보기</a></li>
+        <li><a href="#" title="기획">기획</a></li>
+        <li><a href="#" title="설계">설계</a></li>
+        <li><a href="#" title="디자인">디자인</a></li>
+        <li><a href="#" title="개발">개발</a></li>
+      </ul>
+    </nav>
+
+    <div class="g_box">
+      <figure class="total plan">
+        <img src="./images/img1.jpg" alt="기획(plan)">
+        <figcaption>기획(plan)</figcaption>
+      </figure>
+      <figure class="total ui">
+        <img src="./images/img2.jpg" alt="디자인(ui)">
+        <figcaption>디자인(ui)</figcaption>
+      </figure>
+      <figure class="total design">
+        <img src="./images/img3.jpg" alt="설계(design)">
+        <figcaption>설계(design)</figcaption>
+      </figure>
+      <figure class="total ui">
+        <img src="./images/img4.png" alt="디자인(ui)">
+        <figcaption>디자인(ui)</figcaption>
+      </figure>
+      <figure class="total plan">
+        <img src="./images/img5.jpg" alt="기획(plan)">
+        <figcaption>기획(plan)</figcaption>
+      </figure>
+      <figure class="total design">
+        <img src="./images/img6.jpg" alt="설계(design)">
+        <figcaption>설계(design)</figcaption>
+      </figure>
+      <figure class="total ui">
+        <img src="./images/img7.jpg" alt="디자인(ui)">
+        <figcaption>디자인(ui)</figcaption>
+      </figure>
+      <figure class="total ui">
+        <img src="./images/img8.jpg" alt="디자인(ui)">
+        <figcaption>디자인(ui)</figcaption>
+      </figure>
+      <figure class="total coding">
+        <img src="./images/img9.png" alt="개발(coding)">
+        <figcaption>개발(coding)</figcaption>
+      </figure>
+      <figure class="total plan">
+        <img src="./images/img10.jpg" alt="기획(plan)">
+        <figcaption>기획(plan)</figcaption>
+      </figure>
+      <figure class="total coding">
+        <img src="./images/img11.png" alt="개발(coding)">
+        <figcaption>개발(coding)</figcaption>
+      </figure>
+      <figure class="total ui">
+        <img src="./images/img12.jpg" alt="디자인(ui)">
+        <figcaption>디자인(ui)</figcaption>
+      </figure>
+    </div>
+  </section>
+</main>
+
+<footer>푸터영역</footer>
+
+</body>
+</html>
