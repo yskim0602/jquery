@@ -1,0 +1,102 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
+
+a{
+  text-decoration:none;color:#333;
+  font-size:12px;
+}
+body{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size:12px;
+  color:#333;
+}
+
+header{
+  width:100%;
+  height:94vh; /* vertical height약자 */
+  background-color:#ff0;
+  
+}
+header > h1{
+  position:absolute;
+  left:3%;top:3%;
+}
+header img{width:104%;}
+header span{
+  position:absolute; width:30px;
+  display:inline-block;
+  left:50%;bottom:60px;
+  transform:translateX(-50%);
+  font-size:13px;
+  text-align:center;
+  color:#fff;animation:ani infinite 3s;
+}
+header i.fas{
+  color:#fff;
+  font-size:20px;
+  display:inline-block;
+}
+/* 애니메이션 */
+@keyframes ani{
+  0%{bottom:60px;}
+  50%{bottom:80px;}
+  100%{bottom:60px;}
+}
+
+.gnb{
+  background-color:rgb(20, 194, 179);
+  position:sticky;
+  /* bottom:0px;left:0px; */
+  top:0px;
+  width:100%;height:50px;
+}
+.on{
+  background-color:rgba(20, 194, 179,0.7) !important;
+}
+.gnb > ul{
+  display:flex;
+  justify-content: center;
+}
+.gnb > ul > li{}
+.gnb > ul > li > a{
+  display: block;
+  line-height:50px;
+  color:#fff;
+  padding:0px 20px;
+  font:bold 14px/50px 'Gugi'; /* 축약법 : 굵기 크기/줄간격 글꼴 */
+  text-transform:uppercase;
+}
+.gnb ul > li > a:hover{background:#30e2ca;}
+
+.act{
+  background:#30e2ca;
+  animation: gnb_a infinite 1s;
+}
+@keyframes gnb_a{
+  0%{background:#30e2ca;}
+  50%{background:rgba(0,0,0,.7);}
+  100%{background:#30e2ca;}
+}
+
+/* 메인서식 */
+main{}
+main > section{
+  width:1200px;
+  height:800px;
+  margin:30px auto 30px auto;
+  background:#ff0;
+}
+main > section > h2{
+  text-align:center;
+  font-size:26px;
+  padding:60px 0px 0px 0px;
+}
+
+/* 푸터서식 */
+footer{
+  background:#333;
+  color:#333;
+  text-align:center;
+  line-height:60px;
+}
